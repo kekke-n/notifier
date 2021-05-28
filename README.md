@@ -1,24 +1,25 @@
 # README
+（作成中）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+BacklogのイベントをSlackに通知するアプリケーションです。
+RAILSのAPIモードで実装しています。
 
-Things you may want to cover:
+## Version
 
-* Ruby version
+ruby 3.0.0
 
-* System dependencies
+rails 6.1.3
 
-* Configuration
+## 設定
 
-* Database creation
+環境変数の設定をします。
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+SLACK_OAUTH_TOKEN = # SlackのOAUTH_TOKEN
+SLACK_CHANNEL = # 通知先のSlackのチャンネル
+BACKLOG_API_KEY = # BacklogのAPIキー
+BACKLOG_SPACE_ID = # BacklogのスペースID
+BACKLOG_PROJECT_NAME = # Backlogのプロジェクト名
+BACKLOG_PROJECT_ID = # BacklogのプロジェクトID
+BACKLOG_ISSUE_TYPE_ID = # Backlogの課題種別
+```
