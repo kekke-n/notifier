@@ -6,7 +6,7 @@ class BacklogController < ApplicationController
 
   def post_to_slack
     issue_count = fetch_issues.length
-    issue_list_url = "https://#{@backlog_space_id}.backlog.jp/find/#{@backlog_prj_name}"
+    issue_list_url = "https://#{@backlog_space_id}.backlog.jp/find/#{@backlog_prj_name}?issueTypeId=#{@backlog_issue_type_id}&statusId=1&statusId=2&statusId=3&sort=PRIORITY&order=true"
     post_params = {
       token: @slack_oauth_token,
       channel: "#" + @slack_channel,
