@@ -10,9 +10,15 @@ ruby 3.0.0
 
 rails 6.1.3
 
-## 設定
+## 環境構築
 
-環境変数の設定をします。
+`.env`ファイルを作成する
+
+```
+touch .env
+```
+
+.envファイルに環境変数を設定する
 
 ```
 SLACK_OAUTH_TOKEN = # SlackのOAUTH_TOKEN
@@ -22,4 +28,10 @@ BACKLOG_SPACE_ID = # BacklogのスペースID
 BACKLOG_PROJECT_NAME = # Backlogのプロジェクト名
 BACKLOG_PROJECT_ID = # BacklogのプロジェクトID
 BACKLOG_ISSUE_TYPE_ID = # Backlogの課題種別
+```
+
+railsを起動 
+
+```
+rails s
 ```
