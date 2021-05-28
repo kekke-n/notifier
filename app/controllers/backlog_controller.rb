@@ -10,7 +10,7 @@ class BacklogController < ApplicationController
     post_params = {
       token: @slack_oauth_token,
       channel: "#" + @slack_channel,
-      text: "不具合残り *#{issue_count}件！* \n #{issue_list_url}",
+      text: "不具合残り *#{issue_count}件！* \n <#{issue_list_url}|不具合一覧>",
     }
     uri = URI.parse('https://slack.com/api/chat.postMessage')
     Net::HTTP.post_form uri, post_params
