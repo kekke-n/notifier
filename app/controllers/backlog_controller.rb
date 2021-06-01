@@ -5,12 +5,40 @@ class BacklogController < ApplicationController
   before_action :set_values
 
   def post_to_slack
-    issue_count = fetch_issues.length
+    issues = fetch_issues
+    priority = {}
+    priority[:high] = []
+    priority[:mid] = []
+    priority[:low] = []
+    issues.each do |issue|
+      case issue["priority"]["name"]
+      when "高"
+        priority[:high] << issues
+      when "中"
+        priority[:mid] << issues
+      when "低"
+        priority[:low] << issues
+      else
+        priority[:low] << issues
+      end
+    end
+
+
+    issue_count = issues.length
     issue_list_url = "https://#{@backlog_space_id}.backlog.jp/find/#{@backlog_prj_name}?issueTypeId=#{@backlog_issue_type_id}&statusId=1&statusId=2&statusId=3&sort=PRIORITY&order=true"
+
+    text = <<~"TEXT"
+      不具合残り *#{issue_count}件！* 
+      高 : #{priority[:high].length}件
+      中 : #{priority[:mid].length}件
+      低 : #{priority[:low].length}件
+      <#{issue_list_url}|不具合一覧>
+    TEXT
+    byebug
     post_params = {
       token: @slack_oauth_token,
       channel: "#" + @slack_channel,
-      text: "不具合残り *#{issue_count}件！* \n <#{issue_list_url}|不具合一覧>",
+      text: text,
     }
     uri = URI.parse('https://slack.com/api/chat.postMessage')
     Net::HTTP.post_form uri, post_params
