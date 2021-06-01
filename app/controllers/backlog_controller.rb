@@ -29,12 +29,9 @@ class BacklogController < ApplicationController
 
     text = <<~"TEXT"
       不具合残り *#{issue_count}件！* 
-      高 : #{priority[:high].length}件
-      中 : #{priority[:mid].length}件
-      低 : #{priority[:low].length}件
+      高 : #{priority[:high].length}件 中 : #{priority[:mid].length}件 低 : #{priority[:low].length}件
       <#{issue_list_url}|不具合一覧>
     TEXT
-    byebug
     post_params = {
       token: @slack_oauth_token,
       channel: "#" + @slack_channel,
