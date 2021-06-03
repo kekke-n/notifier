@@ -1,6 +1,5 @@
 class GoogleChat < ApplicationRecord
   require 'net/http'
-  require 'httpclient'
 
   include ActiveModel::Model
 
