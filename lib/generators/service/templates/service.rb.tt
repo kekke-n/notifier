@@ -1,6 +1,16 @@
 <% module_namespacing do -%>
 class <%= class_name %>Service
-  def call
+  private_class_method :new
+
+  def self.call(**kwargs)
+    new.call(**kwargs)
   end
+
+  def call(params={})
+    # Implement core logic.
+  end
+
+  private
+
 end
 <% end -%>
