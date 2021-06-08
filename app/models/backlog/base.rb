@@ -1,0 +1,11 @@
+class Backlog::Base < ApplicationRecord
+  require 'net/http'
+
+  include ActiveModel::Model
+
+  BACKLOG_API_KEY = ENV['BACKLOG_API_KEY']
+  BACKLOG_SPACE_ID = ENV['BACKLOG_SPACE_ID']
+  BACKLOG_PRJ_ID = ENV['BACKLOG_PROJECT_ID']
+  BACKLOG_PRJ_NAME = ENV['BACKLOG_PROJECT_NAME']
+  BACKLOG_ISSUE_TYPE_ID = ENV['BACKLOG_ISSUE_TYPE_ID']
+end
