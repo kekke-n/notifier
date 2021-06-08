@@ -1,4 +1,4 @@
-class Backlog::Issue::Bug < Backlog::Issue::Base
+class Backlog::Issue::Bug < Backlog::Issue
   def self.fetch
     super(backlog_issue_type_id: BACKLOG_ISSUE_TYPE_ID)
   end

@@ -1,4 +1,4 @@
-class Backlog::Base < ApplicationRecord
+class Backlog < ApplicationRecord
   require 'net/http'
 
   include ActiveModel::Model
