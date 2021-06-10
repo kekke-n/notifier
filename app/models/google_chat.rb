@@ -22,16 +22,18 @@ class GoogleChat < ApplicationRecord
       status_name = contents[:status][:name]
       comment     = contents[:comment][:content]
       key_id      = contents[:key_id]
+      key_name   = UriUtil.backlog_key_name(key_id)
       issue_url   = UriUtil.backlog_view_url(key_id)
       body =<<~"TEXT"
-        課題「#{summary}」のステータスが「#{status_name}」に更新されました。
+        #{key_name} #{summary}
         #{issue_url}
+        ステータスが「#{status_name}」に更新されました。
       TEXT
       if comment.present?
         body << <<~"TEXT"
-        ---------------------------------------
+        ```
         #{comment}
-        ---------------------------------------
+        ```
         TEXT
       end
 

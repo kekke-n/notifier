@@ -20,8 +20,12 @@ module UriUtil
     "https://#{backlog_domain}"
   end
 
+  def self.backlog_key_name(key_id)
+    "#{BACKLOG_PROJECT_NAME}-#{key_id}"
+  end
+
   def self.backlog_view_url(key_id)
-    "#{backlog_url}/view/#{BACKLOG_PROJECT_NAME}-#{key_id}"
+    "#{backlog_url}/view/#{backlog_key_name(key_id)}"
   end
 
   # Google Chat
