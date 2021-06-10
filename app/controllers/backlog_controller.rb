@@ -13,6 +13,10 @@ class BacklogController < ApplicationController
       # 完了ステータスに更新された時だけチャットに通知
       body = GoogleChat.body(content)
       GoogleChat.post(body)
+
+      # Slackに不具合の件数を通知
+      body = Backlog::Issue::Bug.body
+      Slack.post(body)
     end
   end
 
