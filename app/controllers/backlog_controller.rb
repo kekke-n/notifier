@@ -6,9 +6,12 @@ class BacklogController < ApplicationController
   end
 
   def post_to_google_chat
-    # TODO:更新されたIssueの状態を通知する
-    text = 'issueが更新されました。'
-    GoogleChat.post(text)
+    content  = params.require(:content).permit!
+
+    if content[:status][:id] == '4' # 完了ステータス
+      body = GoogleChat.body(content)
+      GoogleChat.post(body)
+    end
   end
 
   private

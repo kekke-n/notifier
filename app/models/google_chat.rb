@@ -15,4 +15,20 @@ class GoogleChat < ApplicationRecord
     http.use_ssl = uri.scheme === "https"
     http.post uri, post_params.to_json, headers
   end
+
+  # @param [Hash] updated issue contents.
+  # @opt [Hash] status
+  # @opt [Hash] priority
+  def self.body(contents = {})
+    summary = contents[:summary]
+    status_name = contents[:status][:name]
+    comment = contents[:comment]
+    body =<<~"TEXT"
+      課題「#{summary}」のステータスが「#{status_name}」に更新されました。
+      #{comment}
+    TEXT
+    puts "-----body-----"
+    puts "#{body}"
+    puts "-----body-----"
+  end
 end
