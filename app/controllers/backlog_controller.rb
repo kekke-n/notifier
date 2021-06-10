@@ -11,12 +11,12 @@ class BacklogController < ApplicationController
 
     if changes[:field] == "status" && changes[:new_value] == "4"
       # 完了ステータスに更新された時だけチャットに通知
-      body = GoogleChat.body(content)
-      GoogleChat.post(body)
+      updated_info = GoogleChat.body(content)
+      GoogleChat.post(updated_info)
 
       # Slackに不具合の件数を通知
-      body = Backlog::Issue::Bug.body
-      Slack.post(body)
+      bug_info = Backlog::Issue::Bug.body
+      Slack.post(updated_info << bug_info)
     end
   end
 
