@@ -20,7 +20,7 @@ class GoogleChat < ApplicationRecord
     def body(contents = {})
       summary     = contents[:summary]
       status_name = contents[:status][:name]
-      comment     = contents[:comment]
+      comment     = contents[:comment][:content]
       key_id      = contents[:key_id]
       issue_url   = UriUtil.backlog_view_url(key_id)
       body =<<~"TEXT"
