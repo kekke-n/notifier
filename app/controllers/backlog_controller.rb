@@ -18,6 +18,12 @@ class BacklogController < ApplicationController
       bug_info = Backlog::Issue::Bug.body
       Slack.post(updated_info << bug_info)
     end
+
+    # TODO:課題登録時にGoogolChatに通知する
+    if false
+      created_message = GoogleChat.created_message
+      GoogleChat.post(created_message)
+    end
   end
 
   private

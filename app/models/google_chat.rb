@@ -41,6 +41,11 @@ class GoogleChat < ApplicationRecord
       body
     end
 
+    def created_message
+      # TODO:課題登録時にGoogolChatに通知する
+      "課題が登録されました。"
+    end
+
     private
     def body_log(body)
       puts "-----body-----"
