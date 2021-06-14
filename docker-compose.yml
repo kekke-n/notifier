@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    environment:
+      RAILS_ENV: "development"
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/app
+    ports:
+      - "3008:3000"
+    stdin_open: true
+    tty: true
+    privileged: true
