@@ -1,7 +1,7 @@
 class BacklogController < ApplicationController
 
   def post_to_slack
-    body = Backlog::Issue::Bug.body
+    body = Backlog::Issue::Bug.report
     Slack.post(body)
   end
 
@@ -15,7 +15,7 @@ class BacklogController < ApplicationController
       GoogleChat.post(updated_info)
 
       # Slackに不具合の件数を通知
-      bug_info = Backlog::Issue::Bug.body
+      bug_info = Backlog::Issue::Bug.report
       Slack.post(updated_info << bug_info)
     end
 

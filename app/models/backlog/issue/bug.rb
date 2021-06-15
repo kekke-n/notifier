@@ -7,7 +7,7 @@ class Backlog::Issue::Bug < Backlog::Issue
     super(backlog_issue_type_id: BACKLOG_ISSUE_TYPE_ID)
   end
 
-  def self.body
+  def self.report
     <<~"TEXT"
       不具合残り *#{priority[:length]}件！* 
       高:#{priority[:high].length}/中:#{priority[:mid].length}/低:#{priority[:low].length}

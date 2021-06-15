@@ -10,7 +10,7 @@ class Backlog::Issue < Backlog
     "https://#{BACKLOG_SPACE_ID}.backlog.jp/find/#{BACKLOG_PRJ_NAME}?issueTypeId=#{opt[:backlog_issue_type_id]}&statusId=1&statusId=2&statusId=3&sort=PRIORITY&order=true"
   end
 
-  def self.body(opt = {})
+  def self.report(opt = {})
   end
 
   def self.priority
