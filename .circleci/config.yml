@@ -17,3 +17,6 @@ jobs:
           command: |
             set -x
             docker-compose up --build -d
+      - run:
+          name: test
+          command: docker-compose run app bundle exec rspec
