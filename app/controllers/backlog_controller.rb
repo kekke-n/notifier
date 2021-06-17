@@ -1,11 +1,6 @@
 class BacklogController < ApplicationController
 
-  def post_to_slack
-    body = Backlog::Issue::Bug.report
-    Slack.post(body)
-  end
-
-  def post_to_google_chat
+  def bug_report
     content  = params.require(:content).permit!
     issue_type = content[:issueType]
     changes = content[:changes]&.first || {} # 配列の最初の要素にある
