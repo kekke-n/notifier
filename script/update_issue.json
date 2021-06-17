@@ -1,0 +1,33 @@
+{
+  "content": {
+    "id": 1,
+    "key_id": "9551",
+    "summary": "テスト課題",
+    "comment": {
+      "content": "対応完了しました。"
+    },
+    "status": {
+      "id": 4,
+      "name": "完了"
+    },
+    "priority": {
+      "id": 3,
+      "name": "中"
+    },
+    "issueType": {
+      "id": 0,
+      "projectId": 0,
+      "name": "issueType",
+      "color": "#000000",
+      "displayOrder": 1
+    },
+    "changes": [
+      {
+        "field": "status",
+        "new_value": "4",
+        "old_value": "2",
+        "type": "standard"
+      }
+    ]
+  }
+}
