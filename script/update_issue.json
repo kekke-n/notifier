@@ -28,6 +28,11 @@
         "old_value": "2",
         "type": "standard"
       }
-    ]
+    ],
+    "updatedUser": {
+      "id": 10,
+      "userId": "hoge.piyo",
+      "name": "hoge piyo"
+    }
   }
 }
