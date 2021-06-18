@@ -29,9 +29,7 @@
         "type": "standard"
       }
     ],
-    "updatedUser": {
-      "id": 10,
-      "userId": "hoge.piyo",
+    "assignee": {
       "name": "hoge piyo"
     }
   }
