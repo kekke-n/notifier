@@ -17,4 +17,4 @@ RUN gem install bundler
 RUN bundle install
 
 # Cron
-RUN bundle exec whenever --update-crontab -e development
+RUN bundle exec whenever --update-crontab
