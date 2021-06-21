@@ -3,8 +3,8 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 
-# Example:
-#
+ENV.each { |k, v| env(k, v) }
+
 set :output, "/app/log/cron_log.log"
 #
 # every 2.hours do
